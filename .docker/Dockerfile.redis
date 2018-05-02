@@ -1,0 +1,8 @@
+FROM centos
+EXPOSE 6379
+### Install epel release
+RUN yum update -y && yum install -y epel-release && \
+### Install redis
+    yum install -y redis
+### Start redis server
+ENTRYPOINT ["redis-server"]

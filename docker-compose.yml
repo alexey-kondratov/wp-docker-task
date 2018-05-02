@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wp-app
+    hostname: wp-app
+    container_name: wp-app
+    depends_on:
+      wp-redis:
+        condition: service_started
+
+
+  wp-redis:
+    build:
+      context: ./.docker
+      dockerfile: Dockerfile.redis
+    image: wp-redis
+    hostname: wp-redis
+    container_name: wp-redis
+    expose:
+    - 6379
