@@ -11,5 +11,8 @@ RUN yum --enablerepo=remi-php72 install -y php php-mysql php-xml php-soap php-xm
     yum install -y mysql
 
 ADD app /var/www/html
+ADD config /
+
+RUN chown -R apache:apache /var/www/html
 
 ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
