@@ -10,9 +10,21 @@ services:
     hostname: wp-app
     container_name: wp-app
     depends_on:
+      wp-db:
+        condition: service_started
       wp-redis:
         condition: service_started
 
+  wp-db:
+    build:
+      context: ./.docker
+      dockerfile: Dockerfile.mysql
+    image: wp-db
+    hostname: wp-db
+    container_name: wp-db
+    command: ["/bin/bash","db_access.sh"]
+    expose:
+    - 3306
 
   wp-redis:
     build:

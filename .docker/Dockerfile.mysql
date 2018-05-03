@@ -1,0 +1,18 @@
+FROM centos
+EXPOSE 3306
+### Add package Maria-db
+ADD /config/etc/yum.repos.d/MariaDB.repo /etc/yum.repos.d/
+RUN yum update -y && yum install -y epel-release && \
+    yum install -y MariaDB-server \
+    supervisor
+    
+ADD db_access.sh .
+ADD /config /
+
+### Supervisor is not start
+
+#CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+#ENTRYPOINT ["supervisord", "-c", "/etc/supervisord.conf"]
+#CMD ["/bin/bash","/db_access.sh"]
+
+CMD ["usr/bin/mysqld_safe"]
