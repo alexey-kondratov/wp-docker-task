@@ -22,8 +22,6 @@ services:
     image: wp-db
     hostname: wp-db
     container_name: wp-db
-    expose:
-    - 3306
 
   wp-redis:
     build:
@@ -32,5 +30,4 @@ services:
     image: wp-redis
     hostname: wp-redis
     container_name: wp-redis
-    expose:
-    - 6379
+
