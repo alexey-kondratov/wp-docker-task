@@ -2,7 +2,7 @@
 define('DB_NAME', 'database-wordpress');
 define('DB_USER', 'user-wordpress');
 define('DB_PASSWORD', 'EHeGecnMJjgw39qy');
-define('DB_HOST', 'wp_db');
+define('DB_HOST', 'wp-db');
 define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */

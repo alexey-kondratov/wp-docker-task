@@ -22,7 +22,6 @@ services:
     image: wp-db
     hostname: wp-db
     container_name: wp-db
-    command: ["/bin/bash","db_access.sh"]
     expose:
     - 3306
 
