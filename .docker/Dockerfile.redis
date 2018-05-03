@@ -5,4 +5,4 @@ RUN yum update -y && yum install -y epel-release && \
 ### Install redis
     yum install -y redis
 ### Start redis server
-ENTRYPOINT ["redis-server"]
+ENTRYPOINT ["redis-server","--protected-mode", "no"]
